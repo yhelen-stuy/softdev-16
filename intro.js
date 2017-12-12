@@ -2,8 +2,11 @@
 var listNum = 8;
 // The original contents of the heading
 var origHeading = document.getElementById("h").innerHTML
-// The next num for fib sequence
+// Fib sequence
 var fib = [];
+// Next num for triangle list
+var tri = 1;
+
 
 // Function to be run when the button is clicked, adding an item
 // and incrementing the list item count
@@ -55,6 +58,16 @@ var addFibList = function() {
     fiblist.appendChild(li);
 };
 
+// Function to add to the triangle list
+var addTriangleList = function() {
+    var li = document.createElement('li');
+    li.innerHTML = tri * (tri + 1) / 2;
+
+    var trilist = document.getElementById("trianglelist");
+    trilist.appendChild(li);
+    tri++;
+}
+
 // The button that generates list items
 var b = document.getElementById("b");
 // The list items that already exist
@@ -77,4 +90,5 @@ for (var i = 0; i < listItems.length; i++) {
 var fb = document.getElementById('fb');
 fb.addEventListener('click', addFibList);
 
-console.log(Math.PI);
+var t = document.getElementById('t');
+t.addEventListener('click', addTriangleList);
